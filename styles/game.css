@@ -1,4 +1,6 @@
 /* Game section */
+
+/* Scoreboard */
 .game__scoreboard {
     display: flex;
     align-items: center;
@@ -60,4 +62,11 @@
 .game__sword {
     width: 100px;
     height: 100px;
+}
+
+/* Result-display */
+.game__result {
+    font-size: 3.125rem;
+    text-align: center;
+    text-transform: uppercase;
 }
