@@ -55,6 +55,7 @@
     align-items: center;
     justify-content: space-evenly;
     background: var(--clr-teal);
+    font-family: 'Architects Daughter', cursive;
     max-width: 280px;
     height: 120px;
     width: 100%;
