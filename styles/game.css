@@ -65,6 +65,10 @@
 }
 
 /* Result-display */
+.game__result-display {
+    margin: 150px 0 100px 0;
+}
+
 .game__result {
     font-size: 3.125rem;
     text-align: center;
