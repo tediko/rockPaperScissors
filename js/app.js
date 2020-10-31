@@ -11,16 +11,18 @@ const getComputerChoice = () => {
     return choices[cpuChoice];
 }
 
-const win = () => {
+const win = (userChoice, cpuChoice) => {
     userScore++;
     playerScore.textContent = userScore;
+    result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
 }
-const lose = () => {
+const lose = (userChoice, cpuChoice) => {
     computerScore++;
     cpuScore.textContent = computerScore;
+    result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
 }
 const tie = () => {
-    console.log('tie');
+    result.textContent = `It's a tie!`;
 }
 
 function game() {
@@ -31,12 +33,12 @@ function game() {
         case 'rockscissors':
         case 'paperrock':
         case 'scissorspaper':
-            win();
+            win(userChoice, cpuChoice);
             break;
         case 'scissorsrock':
         case 'rockpaper':
         case 'paperscissors':
-            lose();
+            lose(userChoice, cpuChoice);
             break;
         default: 
             tie();
