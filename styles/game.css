@@ -106,4 +106,5 @@
     text-transform: uppercase;
     color: var(--clr-gray);
     text-align: center;
+    margin: 15px 0 0 0;
 }
