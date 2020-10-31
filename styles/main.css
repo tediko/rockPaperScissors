@@ -1,0 +1,25 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap');
+
+/* Variables */
+:root {
+    --clr-black: #111111;
+    --clr-white: #ffffff;
+    --clr-teal: #39CCCC;
+    --clr-gray: #E2E2E2;
+}
+
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: var(--clr-white);
+}
+
+/* Utilities */
