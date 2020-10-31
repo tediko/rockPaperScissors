@@ -6,7 +6,8 @@
     --clr-black: #111111;
     --clr-white: #ffffff;
     --clr-teal: #39CCCC;
-    --clr-gray: #E2E2E2;
+    --clr-silver: #E2E2E2;
+    --clr-gray: #AAAAAA;
     --bg-main: #111111;
 }
 
@@ -25,3 +26,9 @@ body {
 }
 
 /* Utilities */
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Text */
