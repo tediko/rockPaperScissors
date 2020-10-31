@@ -62,6 +62,28 @@
     font-size: 3.125rem;
 }
 
+.game__player-score.active {
+    animation: score 150ms;
+}
+.game__cpu-score.active {
+    animation: score 150ms;
+}
+
+@keyframes score {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        font-size: 5rem;
+    }
+
+    100% {
+        opacity: 1;
+        font-size: 3.125rem;
+    }
+}
+
 .game__sword {
     width: 100px;
     height: 100px;

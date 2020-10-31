@@ -15,11 +15,19 @@ const win = (userChoice, cpuChoice) => {
     userScore++;
     playerScore.textContent = userScore;
     result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
+    playerScore.classList.add('active');
+    setTimeout(() => {
+        playerScore.classList.remove('active');
+    }, 150)
 }
 const lose = (userChoice, cpuChoice) => {
     computerScore++;
     cpuScore.textContent = computerScore;
     result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
+    cpuScore.classList.add('active');
+    setTimeout(() => {
+        cpuScore.classList.remove('active');
+    }, 150)
 }
 const tie = () => {
     result.textContent = `It's a tie!`;
