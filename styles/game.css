@@ -70,3 +70,36 @@
     text-align: center;
     text-transform: uppercase;
 }
+
+/* Userchoice */
+.game__userchoice {
+    display: flex;
+    justify-content: center;
+}
+
+.game__choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border: 3px solid var(--clr-white);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.game__choice:not(:last-child) {
+    margin-right: 50px;
+}
+
+.game__choice-img {
+    width: 83px;
+    height: 83px;
+}
+
+.game__text {
+    font-size: 1.5625rem;
+    text-transform: uppercase;
+    color: var(--clr-gray);
+    text-align: center;
+}
