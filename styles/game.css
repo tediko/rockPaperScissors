@@ -1,4 +1,7 @@
 /* Game section */
+.game {
+    width: 100%;
+}
 
 /* Scoreboard */
 .game__scoreboard {
