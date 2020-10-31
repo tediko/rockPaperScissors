@@ -175,6 +175,11 @@
     border: 3px solid var(--clr-white);
     border-radius: 50%;
     cursor: pointer;
+    transition: transform 150ms ease-in;
+}
+
+.game__choice:hover {
+    transform: scale(0.95);
 }
 
 .game__choice:not(:last-child) {
