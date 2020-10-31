@@ -11,6 +11,18 @@ const getComputerChoice = () => {
     return choices[cpuChoice];
 }
 
+const win = () => {
+    userScore++;
+    playerScore.textContent = userScore;
+}
+const lose = () => {
+    computerScore++;
+    cpuScore.textContent = computerScore;
+}
+const tie = () => {
+    console.log('tie');
+}
+
 function game() {
     const userChoice = this.dataset.choice;
     const cpuChoice = getComputerChoice();
@@ -19,15 +31,15 @@ function game() {
         case 'rockscissors':
         case 'paperrock':
         case 'scissorspaper':
-            console.log('user win');
+            win();
             break;
         case 'scissorsrock':
         case 'rockpaper':
         case 'paperscissors':
-            console.log('cpu win');
+            lose();
             break;
         default: 
-            console.log('tie');
+            tie();
             break;
     }
 }
