@@ -7,6 +7,7 @@
     --clr-white: #ffffff;
     --clr-teal: #39CCCC;
     --clr-gray: #E2E2E2;
+    --bg-main: #111111;
 }
 
 /* Global styles */
@@ -18,6 +19,7 @@
 
 body {
     font-family: 'Raleway', sans-serif;
+    background: var(--bg-main);
     font-size: 16px;
     color: var(--clr-white);
 }
