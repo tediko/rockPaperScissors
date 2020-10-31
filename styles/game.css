@@ -182,6 +182,10 @@
     transform: scale(0.95);
 }
 
+.game__choice:active {
+    transform: scale(1.1);
+}
+
 .game__choice:not(:last-child) {
     margin-right: 50px;
 }
