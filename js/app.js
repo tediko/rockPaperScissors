@@ -21,15 +21,19 @@ const handDrawAnimation = () => {
     cpuHand.style.animation = `handDrawRotate 1500ms`;
 }
 
+// Update images
+const updateImages = (userChoice, cpuChoice) => {
+    playerHand.src = `assets/img/result-${userChoice}.png`;
+    cpuHand.src = `assets/img/result-${cpuChoice}.png`;
+}
+
 const win = (userChoice, cpuChoice) => {
     handDrawAnimation();
     setTimeout(() => {
         userScore++;
         playerScore.textContent = userScore;
         result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
-        // Update images
-        playerHand.src = `assets/img/result-${userChoice}.png`;
-        cpuHand.src = `assets/img/result-${cpuChoice}.png`;
+        updateImages(userChoice, cpuChoice);
         playerScore.classList.add('active');
         result.classList.add('win');
     }, 1000)    
@@ -41,9 +45,7 @@ const lose = (userChoice, cpuChoice) => {
         computerScore++;
         cpuScore.textContent = computerScore;
         result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
-        // Update images
-        playerHand.src = `assets/img/result-${userChoice}.png`;
-        cpuHand.src = `assets/img/result-${cpuChoice}.png`;
+        updateImages(userChoice, cpuChoice);
         cpuScore.classList.add('active');
         result.classList.add('lose');
     }, 1000)
@@ -53,9 +55,7 @@ const tie = (userChoice, cpuChoice) => {
     handDrawAnimation();    
     setTimeout(() => {
         result.textContent = `It's a tie!`;
-        // Update images
-        playerHand.src = `assets/img/result-${userChoice}.png`;
-        cpuHand.src = `assets/img/result-${cpuChoice}.png`;
+        updateImages(userChoice, cpuChoice);
     }, 1000)
 }
 
