@@ -185,6 +185,7 @@
     text-align: center;
     text-transform: uppercase;
     box-sizing: border-box;
+    height: 50px;
 }
 
 .game__result.win {
