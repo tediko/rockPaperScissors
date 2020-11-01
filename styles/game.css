@@ -100,8 +100,23 @@
 
 /* Result-display */
 .game__result-display {
-    height: 100px;
     margin: 150px 0 100px 0;
+}
+
+.game__result-hands {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+}
+
+.game__player-hand,
+.game__cpu-hand {
+    width: 250px;
+    height: auto;
+}
+
+.game__cpu-hand {
+    transform: rotateY(180deg);
 }
 
 .game__result {
