@@ -115,8 +115,43 @@
     height: auto;
 }
 
+.game__player-hand.active,
+.game__cpu-hand.active {
+    animation: handDraw 1500ms;
+}
+
 .game__cpu-hand {
     transform: rotateY(180deg);
+}
+
+@keyframes handDraw {
+    0% {
+        transform: translateY(15px);
+    }
+
+    15% {
+        transform: translateY(-15px);
+    }
+
+    30% {
+        transform: translateY(15px);
+    }
+
+    45% {
+        transform: translateY(-15px);
+    }
+
+    60% {
+        transform: translateY(15px);
+    }
+
+    75% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
 }
 
 .game__result {
