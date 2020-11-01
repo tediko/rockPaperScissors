@@ -4,7 +4,7 @@ const cpuScore = document.querySelector('[data-score-cpu]');
 const result = document.querySelector('[data-result]');
 const playerHand = document.querySelector('.game__player-hand');
 const cpuHand = document.querySelector('.game__cpu-hand');
-const hands = document.querySelectorAll('.game__result-hands > img')
+const hands = document.querySelectorAll('.game__result-hands > img');
 let userScore = 0;
 let computerScore = 0;
 
@@ -98,3 +98,16 @@ function game(event) {
 userChoices.forEach(choice => {
     choice.addEventListener('click', game);
 })
+
+
+/* Menu */
+const startButton = document.querySelector('[data-start]');
+const menuSection = document.querySelector('.menu');
+const gameSection = document.querySelector('.game');
+
+const startGame = () => {
+    menuSection.classList.add('active');
+    gameSection.classList.add('active');
+}
+
+startButton.addEventListener('click', startGame);
