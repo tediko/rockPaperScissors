@@ -112,8 +112,8 @@
 
 .game__player-hand,
 .game__cpu-hand {
-    width: 320px;
-    height: auto;
+    width: 250px;
+    height: 150px;
 }
 
 .game__cpu-hand {
@@ -267,6 +267,7 @@
 }
 
 .game__choice-img {
+    pointer-events: none;
     width: 83px;
     height: 83px;
 }
