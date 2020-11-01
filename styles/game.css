@@ -116,14 +116,6 @@
     height: auto;
 }
 
-.game__player-hand.active {
-    animation: handDraw 1500ms;
-}
-
-.game__cpu-hand.active {
-    animation: handDrawRotate 1500ms;
-}
-
 .game__cpu-hand {
     transform: rotateY(180deg);
 }
