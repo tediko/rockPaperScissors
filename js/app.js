@@ -4,6 +4,7 @@ const cpuScore = document.querySelector('[data-score-cpu]');
 const result = document.querySelector('[data-result]');
 const playerHand = document.querySelector('.game__player-hand');
 const cpuHand = document.querySelector('.game__cpu-hand');
+const hands = document.querySelectorAll('.game__result-hands > img')
 let userScore = 0;
 let computerScore = 0;
 
@@ -14,8 +15,8 @@ const getComputerChoice = () => {
 }
 
 const win = (userChoice, cpuChoice) => {
-    playerHand.classList.add('active');
-    cpuHand.classList.add('active');
+    playerHand.style.animation = `handDraw 1500ms`;
+    cpuHand.style.animation = `handDrawRotate 1500ms`;
     setTimeout(() => {
         userScore++;
         playerScore.textContent = userScore;
@@ -24,8 +25,6 @@ const win = (userChoice, cpuChoice) => {
         playerHand.src = `assets/img/result-${userChoice}.png`;
         cpuHand.src = `assets/img/result-${cpuChoice}.png`;
         playerScore.classList.add('active');
-        playerHand.classList.remove('active');
-        cpuHand.classList.remove('active');
     }, 1000)
     
 
@@ -37,8 +36,8 @@ const win = (userChoice, cpuChoice) => {
     }, 150) */
 }
 const lose = (userChoice, cpuChoice) => {
-    playerHand.classList.add('active');
-    cpuHand.classList.add('active');
+    playerHand.style.animation = `handDraw 1500ms`;
+    cpuHand.style.animation = `handDrawRotate 1500ms`;
 
     setTimeout(() => {
         computerScore++;
@@ -48,8 +47,6 @@ const lose = (userChoice, cpuChoice) => {
         playerHand.src = `assets/img/result-${userChoice}.png`;
         cpuHand.src = `assets/img/result-${cpuChoice}.png`;
         cpuScore.classList.add('active');
-        playerHand.classList.remove('active');
-        cpuHand.classList.remove('active');
     }, 1000)
 
 
@@ -61,16 +58,14 @@ const lose = (userChoice, cpuChoice) => {
     }, 150) */
 }
 const tie = (userChoice, cpuChoice) => {
-    playerHand.classList.add('active');
-    cpuHand.classList.add('active');
+    playerHand.style.animation = `handDraw 1500ms`;
+    cpuHand.style.animation = `handDrawRotate 1500ms`;
     
     setTimeout(() => {
         result.textContent = `It's a tie!`;
 
         playerHand.src = `assets/img/result-${userChoice}.png`;
         cpuHand.src = `assets/img/result-${cpuChoice}.png`;
-        playerHand.classList.remove('active');
-        cpuHand.classList.remove('active');
     }, 1000)
 
     // result text animation
@@ -83,7 +78,11 @@ const tie = (userChoice, cpuChoice) => {
 function game() {
     const userChoice = this.dataset.choice;
     const cpuChoice = getComputerChoice();
-
+    hands.forEach(hand => {
+        hand.addEventListener('animationend', () => {
+            hand.style.animation = '';
+        })
+    })
 
     // result text animation
     /* result.classList.remove('lose');
