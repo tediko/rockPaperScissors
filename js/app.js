@@ -61,7 +61,7 @@ const tie = (userChoice, cpuChoice) => {
 
 function game(event) {
     const eventTarget = event.target.parentElement;
-    eventTarget.pointerEvents = 'none'; // Prevent clicking on userChoice buttons
+    eventTarget.style.pointerEvents = 'none'; // Prevent clicking on userChoice buttons
     const userChoice = this.dataset.choice;
     const cpuChoice = getComputerChoice();
 
@@ -69,7 +69,7 @@ function game(event) {
     hands.forEach(hand => {
         hand.addEventListener('animationend', () => {
             hand.style.animation = '';
-            e.target.parentElement.style.pointerEvents = 'auto'; // Enable clicking on userChoice buttons after animation ends
+            eventTarget.style.pointerEvents = 'auto'; // Enable clicking on userChoice buttons after animation ends
             result.classList.remove('win');
             result.classList.remove('lose');
             playerScore.classList.remove('active');
