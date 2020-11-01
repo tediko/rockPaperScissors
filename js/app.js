@@ -16,37 +16,46 @@ const win = (userChoice, cpuChoice) => {
     playerScore.textContent = userScore;
     result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
     playerScore.classList.add('active');
-    result.classList.remove('lose');
+
+    // result text animation
+    /* result.classList.remove('lose');
     result.classList.add('win');
     setTimeout(() => {
         playerScore.classList.remove('active');
-    }, 150)
+    }, 150) */
 }
 const lose = (userChoice, cpuChoice) => {
     computerScore++;
     cpuScore.textContent = computerScore;
     result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
     cpuScore.classList.add('active');
-    result.classList.remove('win');
+
+
+    // result text animation
+    /* result.classList.remove('win');
     result.classList.add('lose');
     setTimeout(() => {
         cpuScore.classList.remove('active');
-    }, 150)
+    }, 150) */
 }
 const tie = () => {
     result.textContent = `It's a tie!`;
-    result.classList.add('active');
+
+    // result text animation
+    /* result.classList.add('active');
     setTimeout(() => {
         result.classList.remove('active');
-    }, 150)
+    }, 150) */
 }
 
 function game() {
     const userChoice = this.dataset.choice;
     const cpuChoice = getComputerChoice();
 
-    result.classList.remove('lose');
-    result.classList.remove('win');
+
+    // result text animation
+    /* result.classList.remove('lose');
+    result.classList.remove('win'); */
 
     switch(userChoice + cpuChoice) {
         case 'rockscissors':
