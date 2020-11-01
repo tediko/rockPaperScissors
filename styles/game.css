@@ -199,7 +199,7 @@
 @keyframes win {
     0% {
         opacity: 0;
-        color: #2ECC40;
+        text-shadow: 0px 0px 25px var(--clr-green);
     }
 
     50% {
@@ -211,7 +211,7 @@
     }
 
     100% {
-        color: #2ECC40;
+        text-shadow: 0px 0px 25px var(--clr-green);
         opacity: 1;
     }
 }
@@ -219,7 +219,7 @@
 @keyframes lose {
     0% {
         opacity: 0;
-        color: #FF4136;
+        text-shadow: 0px 0px 25px var(--clr-red);
         transform: rotate(2deg);
     }
 
@@ -233,7 +233,7 @@
 
     100% {
         opacity: 1;
-        color: #FF4136;
+        text-shadow: 0px 0px 25px var(--clr-red);
     }
 }
 
