@@ -2,6 +2,8 @@ const userChoices = document.querySelectorAll('[data-choice]');
 const playerScore = document.querySelector('[data-score-player]');
 const cpuScore = document.querySelector('[data-score-cpu]');
 const result = document.querySelector('[data-result]');
+const playerHand = document.querySelector('.game__player-hand');
+const cpuHand = document.querySelector('.game__cpu-hand');
 let userScore = 0;
 let computerScore = 0;
 
@@ -12,10 +14,20 @@ const getComputerChoice = () => {
 }
 
 const win = (userChoice, cpuChoice) => {
-    userScore++;
-    playerScore.textContent = userScore;
-    result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
-    playerScore.classList.add('active');
+    playerHand.classList.add('active');
+    cpuHand.classList.add('active');
+    setTimeout(() => {
+        userScore++;
+        playerScore.textContent = userScore;
+        result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
+
+        playerHand.src = `assets/img/result-${userChoice}.png`;
+        cpuHand.src = `assets/img/result-${cpuChoice}.png`;
+        playerScore.classList.add('active');
+        playerHand.classList.remove('active');
+        cpuHand.classList.remove('active');
+    }, 1000)
+    
 
     // result text animation
     /* result.classList.remove('lose');
@@ -25,10 +37,20 @@ const win = (userChoice, cpuChoice) => {
     }, 150) */
 }
 const lose = (userChoice, cpuChoice) => {
-    computerScore++;
-    cpuScore.textContent = computerScore;
-    result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
-    cpuScore.classList.add('active');
+    playerHand.classList.add('active');
+    cpuHand.classList.add('active');
+
+    setTimeout(() => {
+        computerScore++;
+        cpuScore.textContent = computerScore;
+        result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
+
+        playerHand.src = `assets/img/result-${userChoice}.png`;
+        cpuHand.src = `assets/img/result-${cpuChoice}.png`;
+        cpuScore.classList.add('active');
+        playerHand.classList.remove('active');
+        cpuHand.classList.remove('active');
+    }, 1000)
 
 
     // result text animation
@@ -38,8 +60,18 @@ const lose = (userChoice, cpuChoice) => {
         cpuScore.classList.remove('active');
     }, 150) */
 }
-const tie = () => {
-    result.textContent = `It's a tie!`;
+const tie = (userChoice, cpuChoice) => {
+    playerHand.classList.add('active');
+    cpuHand.classList.add('active');
+    
+    setTimeout(() => {
+        result.textContent = `It's a tie!`;
+
+        playerHand.src = `assets/img/result-${userChoice}.png`;
+        cpuHand.src = `assets/img/result-${cpuChoice}.png`;
+        playerHand.classList.remove('active');
+        cpuHand.classList.remove('active');
+    }, 1000)
 
     // result text animation
     /* result.classList.add('active');
@@ -69,7 +101,7 @@ function game() {
             lose(userChoice, cpuChoice);
             break;
         default: 
-            tie();
+            tie(userChoice, cpuChoice);
             break;
     }
 }
