@@ -1,5 +1,6 @@
 /* Game section */
 .game {
+    display: none;
     background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 100%),url('../assets/img/game-bg.jpg');
     background-size: cover;
     background-repeat: none;
