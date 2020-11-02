@@ -33,9 +33,9 @@
                                     <input type="text" class="menu__player-name" placeholder="Your player name">
                                 <p class="menu__title">Choose your avatar:</p>
                                     <radiogroup class="menu__avatar">
-                                        <input type="radio" id="male" name="avatar" value="male" checked>
+                                        <input type="radio" id="male" name="avatar" value="man" checked>
                                         <label for="male"><div class="menu__check"><img class="menu__player-img" src="assets/img/scoreboard-playerman.png" alt="male avatar"></div></label>
-                                        <input type="radio" id="female" name="avatar" value="female">
+                                        <input type="radio" id="female" name="avatar" value="woman">
                                         <label for="female"><div class="menu__check"><img class="menu__player-img" src="assets/img/scoreboard-playerwoman.png" alt="female avatar"></div></label>
                                     </radiogroup>
                                 <p class="menu__title">Limit point to win:</p>
@@ -47,7 +47,7 @@
                                         <input type="radio" id="points10" name="points" value="10">
                                         <label for="points10"><p class="menu__points">10</p></label>
                                     </radiogroup>
-                                <button class="menu__cta" data-start>START GAME!</button>
+                                <a class="menu__cta" data-start>START GAME!</a>
                             </form>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                 <div class="game__scoreboard">
                     <div class="game__bar">
                         <div class="game__avatar game__avatar--left">
-                            <img class="game__player-image" src="assets/img/scoreboard-playerman.png" alt="player avatar">
+                            <img class="game__player-image" src="assets/img/scoreboard-playerman.png" alt="player avatar" data-avatar>
                         </div>
                         <p class="game__player" data-name>player</p>
                     </div>
