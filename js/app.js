@@ -2,6 +2,7 @@ const userChoices = document.querySelectorAll('[data-choice]');
 const playerScore = document.querySelector('[data-score-player]');
 const cpuScore = document.querySelector('[data-score-cpu]');
 const result = document.querySelector('[data-result]');
+const handsDiv = document.querySelector('.game__result-hands');
 const playerHand = document.querySelector('.game__player-hand');
 const cpuHand = document.querySelector('.game__cpu-hand');
 const hands = document.querySelectorAll('.game__result-hands > img');
@@ -31,12 +32,27 @@ const updateImages = (userChoice, cpuChoice) => {
     cpuHand.src = `assets/img/result-${cpuChoice}.png`;
 }
 
+const userWin = () => {
+    setTimeout(() => {
+        handsDiv.style.display = 'none';
+        result.textContent = `${playerName.textContent} WIN! CONGRATULATIONS!`;
+    }, 1000);
+}
+
+const cpuWin = () => {
+    setTimeout(() => {
+        handsDiv.style.display = 'none';
+        result.textContent = `${playerName.textContent} LOST :( CPU WINS!`;
+    }, 1000);
+}
+
 const win = (userChoice, cpuChoice) => {
     handDrawAnimation();
     setTimeout(() => {
         userScore++;
         playerScore.textContent = userScore;
         result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
+        userScore == pointLimit ? userWin() : '';
         updateImages(userChoice, cpuChoice);
         playerScore.classList.add('active');
         result.classList.add('win');
@@ -49,6 +65,7 @@ const lose = (userChoice, cpuChoice) => {
         computerScore++;
         cpuScore.textContent = computerScore;
         result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
+        computerScore == pointLimit ? cpuWin() : '';
         updateImages(userChoice, cpuChoice);
         cpuScore.classList.add('active');
         result.classList.add('lose');
