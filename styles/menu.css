@@ -12,7 +12,12 @@
     height: 100vh;
 }
 
-.menu.active {
+.menu__start {
+    display: flex;
+    flex-flow: column;
+}
+
+.menu__start.active {
     display: none;
 }
 
@@ -52,7 +57,7 @@
     margin: 100px 0;
 }
 
-.menu__start {
+.menu__set {
     font-size: 3.125rem;
     font-weight: 600;
     animation: startGame 1000ms infinite;
@@ -75,14 +80,78 @@
 }
 
 /* Menu settings */
+.menu__settings {
+    display: none;
+}
+
+.menu__settings.active {
+    display: initial;
+    animation: menuSection 450ms;
+}
+
+@keyframes menuSection {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu__settings-container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.menu__settings .menu__heading {
+    font-size: 5rem;
+}
+
 .menu__modal {
     background: var(--clr-white);
     color: var(--clr-black);
-    height: 400px;
+    height: 500px;
+    border-radius: 5px;
+}
+
+.menu__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.menu__form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.menu__title {
+    text-transform: uppercase;
+}
+
+.menu__player-name {
+    padding: 10px 0;
+    border: 1px solid var(--clr-gray);
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    transition: border 250ms ease-in;
+}
+
+.menu__player-name:focus {
+    border: 1px solid var(--clr-blue);
 }
 
 .menu__check {
     position: relative;
+    cursor: pointer;
 }
 
 .menu__check::before {
@@ -109,6 +178,13 @@
     height: 75px;
 }
 
+.menu__avatar {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 300px;
+    width: 100%;
+}
+
 .menu__avatar input[type=radio] {
     display: none;
 }
@@ -123,13 +199,49 @@
 
 .menu__limit {
     display: flex;
-    font-size: 2rem;
+    justify-content: space-evenly;
+    max-width: 300px;
+    width: 100%;
+    font-size: 3rem;
+}
+
+.menu__points {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    font-family: 'Architects Daughter', cursive;
+    transition: color 150ms ease-in,
+                font-size 150ms ease-in;
+    cursor: pointer;
 }
 
 :checked+label .menu__points {
     font-weight: 700;
+    color: var(--clr-blue);
+    font-size: 3.5rem;
 }
 
 .menu__limit input[type=radio] {
     display: none;
+}
+
+.menu__cta {
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background: var(--clr-green);
+    font-size: 2rem;
+    color: var(--clr-white);
+    text-transform: uppercase;
+    opacity: 0.3;
+    transition: background 150ms ease-in,
+                opacity 150ms ease-in;
+}
+
+.menu__cta:hover {
+    background: var(--clr-blue);
+    opacity: 1;
 }
