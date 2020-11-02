@@ -12,12 +12,16 @@
     height: 100vh;
 }
 
+.menu.disable {
+    display: none;
+}
+
 .menu__start {
     display: flex;
     flex-flow: column;
 }
 
-.menu__start.active {
+.menu__start.disable {
     display: none;
 }
 
