@@ -8,7 +8,6 @@ const hands = document.querySelectorAll('.game__result-hands > img');
 const playerName = document.querySelector('[data-name]');
 const playerAvatar = document.querySelector('[data-avatar]');
 let pointLimit;
-
 let userScore = 0;
 let computerScore = 0;
 
@@ -129,7 +128,7 @@ const startGame = () => {
     menuSection.classList.add('disable');
     gameSection.classList.add('active');
 
-    playerName.textContent = name.value;
+    playerName.textContent = name.value == "" ? 'player' : name.value;
     playerAvatar.src = `assets/img/scoreboard-player${avatar.value}.png`;
     pointLimit = limit.value;
 
