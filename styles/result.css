@@ -13,6 +13,17 @@
 
 .result.active {
     display: flex;
+    animation: resultSection 350ms;
+}
+
+@keyframes resultSection {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .result__wrapper {
@@ -22,8 +33,8 @@
 }
 
 .result__img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     margin-bottom: 20px;
 }
 
