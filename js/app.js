@@ -2,12 +2,16 @@ const userChoices = document.querySelectorAll('[data-choice]');
 const playerScore = document.querySelector('[data-score-player]');
 const cpuScore = document.querySelector('[data-score-cpu]');
 const result = document.querySelector('[data-result]');
-const handsDiv = document.querySelector('.game__result-hands');
 const playerHand = document.querySelector('.game__player-hand');
 const cpuHand = document.querySelector('.game__cpu-hand');
 const hands = document.querySelectorAll('.game__result-hands > img');
 const playerName = document.querySelector('[data-name]');
 const playerAvatar = document.querySelector('[data-avatar]');
+const winnerImage = document.querySelector('[data-winner-image]');
+const winnerResult = document.querySelector('[data-winner]');
+const resultSection = document.querySelector('.result');
+const gameSection = document.querySelector('.game');
+const menuSection = document.querySelector('.menu');
 let pointLimit = 0;
 let userScore = 0;
 let computerScore = 0;
@@ -34,15 +38,19 @@ const updateImages = (userChoice, cpuChoice) => {
 
 const userWin = () => {
     setTimeout(() => {
-        handsDiv.style.display = 'none';
-        result.textContent = `${playerName.textContent} WIN! CONGRATULATIONS!`;
+        gameSection.classList.remove('active');
+        resultSection.classList.add('active');
+        winnerImage.src = `assets/img/result-win.png`;
+        winnerResult.textContent = `YOU WON! CONGRATULATIONS ${playerName.textContent}!`;
     }, 1000);
 }
 
 const cpuWin = () => {
     setTimeout(() => {
-        handsDiv.style.display = 'none';
-        result.textContent = `${playerName.textContent} LOST :( CPU WINS!`;
+        gameSection.classList.remove('active');
+        resultSection.classList.add('active');
+        winnerImage.src = `assets/img/result-lost.png`;
+        winnerResult.textContent = `${playerName.textContent} LOST. CPU WINS!`;
     }, 1000);
 }
 
@@ -56,7 +64,7 @@ const win = (userChoice, cpuChoice) => {
         updateImages(userChoice, cpuChoice);
         playerScore.classList.add('active');
         result.classList.add('win');
-    }, 1000)    
+    }, 1000);
 }
 
 const lose = (userChoice, cpuChoice) => {
@@ -126,8 +134,6 @@ const settingsButton = document.querySelector('[data-settings]');
 const startButton = document.querySelector('[data-start]');
 const menuStartSection = document.querySelector('.menu__start');
 const settingsSection = document.querySelector('.menu__settings');
-const gameSection = document.querySelector('.game');
-const menuSection = document.querySelector('.menu');
 const form = document.querySelector('.menu__form');
 
 // Disable start menu and show settings modal
