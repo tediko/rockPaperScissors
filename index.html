@@ -20,28 +20,33 @@
                 <h1 class="menu__heading menu__heading--blue">Scissors<img class="menu__hands-img" src="assets/img/userchoice-scissors.png" alt="scissors image"></h1>
                 <h2 class="menu__heading menu__start" data-start>START GAME &#9655;</h2> -->
                 <div class="menu__settings">
-                    <h3 class="menu__heading">Settings<i class="fas fa-users-cog"></i></h3>
-                    <div class="menu__modal">
-                        <form action="" class="menu__form">
-                            <label for="pname" class="menu__title">Player name:</label>
-                                <input type="text" class="menu__player-name" placeholder="Your player name">
-                            <p class="menu__title">Choose your avatar:</p>
-                                <radiogroup class="menu__avatar">
-                                    <input type="radio" id="male" name="avatar" value="male" checked>
-                                    <label for="male"><div class="menu__check"><img class="menu__player-img" src="assets/img/scoreboard-playerman.png" alt="male avatar"></div></label>
-                                    <input type="radio" id="female" name="avatar" value="female">
-                                    <label for="female"><div class="menu__check"><img class="menu__player-img" src="assets/img/scoreboard-playerwoman.png" alt="female avatar"></div></label>
-                                </radiogroup>
-                            <p class="menu__title">Limit point to win:</p>
-                                <radiogroup class="menu__limit">
-                                    <input type="radio" id="points3" name="points" value="3" checked>
-                                    <label for="points3"><p class="menu__points">3</p></label>
-                                    <input type="radio" id="points5" name="points" value="5">
-                                    <label for="points5"><p class="menu__points">5</p></label>
-                                    <input type="radio" id="points10" name="points" value="10">
-                                    <label for="points10"><p class="menu__points">10</p></label>
-                                </radiogroup>
-                        </form>
+                    <div class="menu__settings-container">
+                        <div class="menu__header">
+                            <h3 class="menu__heading">Settings</h3>
+                            <i class="fas fa-users-cog fa-5x"></i>
+                        </div>
+                        <div class="menu__modal">
+                            <form action="" class="menu__form">
+                                <label for="pname" class="menu__title">Player name:</label>
+                                    <input type="text" class="menu__player-name" placeholder="Your player name">
+                                <p class="menu__title">Choose your avatar:</p>
+                                    <radiogroup class="menu__avatar">
+                                        <input type="radio" id="male" name="avatar" value="male" checked>
+                                        <label for="male"><div class="menu__check"><img class="menu__player-img" src="assets/img/scoreboard-playerman.png" alt="male avatar"></div></label>
+                                        <input type="radio" id="female" name="avatar" value="female">
+                                        <label for="female"><div class="menu__check"><img class="menu__player-img" src="assets/img/scoreboard-playerwoman.png" alt="female avatar"></div></label>
+                                    </radiogroup>
+                                <p class="menu__title">Limit point to win:</p>
+                                    <radiogroup class="menu__limit">
+                                        <input type="radio" id="points3" name="points" value="3" checked>
+                                        <label for="points3"><p class="menu__points">3</p></label>
+                                        <input type="radio" id="points5" name="points" value="5">
+                                        <label for="points5"><p class="menu__points">5</p></label>
+                                        <input type="radio" id="points10" name="points" value="10">
+                                        <label for="points10"><p class="menu__points">10</p></label>
+                                    </radiogroup>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
