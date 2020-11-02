@@ -5,8 +5,13 @@ const result = document.querySelector('[data-result]');
 const playerHand = document.querySelector('.game__player-hand');
 const cpuHand = document.querySelector('.game__cpu-hand');
 const hands = document.querySelectorAll('.game__result-hands > img');
+const playerName = document.querySelector('[data-name]');
+const playerAvatar = document.querySelector('[data-avatar]');
+let pointLimit;
+
 let userScore = 0;
 let computerScore = 0;
+
 
 // Random computer choice
 const getComputerChoice = () => {
@@ -100,14 +105,36 @@ userChoices.forEach(choice => {
 })
 
 
-/* Settings */
+/* Settings & start game*/
 const settingsButton = document.querySelector('[data-settings]');
-const menuSection = document.querySelector('.menu__start');
+const startButton = document.querySelector('[data-start]');
+const menuStartSection = document.querySelector('.menu__start');
 const settingsSection = document.querySelector('.menu__settings');
+const gameSection = document.querySelector('.game');
+const menuSection = document.querySelector('.menu');
+const form = document.querySelector('.menu__form');
 
+// Disable start menu and show settings modal
 const gameSettings = () => {
-    menuSection.classList.add('active');
+    menuStartSection.classList.add('disable');
     settingsSection.classList.add('active');
 }
 
+// Disable settings and show game. Fn gets values from setting
+const startGame = () => {
+    const name = document.querySelector('.menu__player-name');
+    const avatar = document.querySelector('input[name="avatar"]:checked');
+    const limit = document.querySelector('input[name="points"]:checked');
+
+    menuSection.classList.add('disable');
+    gameSection.classList.add('active');
+
+    playerName.textContent = name.value;
+    playerAvatar.src = `assets/img/scoreboard-player${avatar.value}.png`;
+    pointLimit = limit.value;
+
+    form.reset();
+}
+
 settingsButton.addEventListener('click', gameSettings);
+startButton.addEventListener('click', startGame);
