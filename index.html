@@ -14,10 +14,35 @@
     <section class="menu">
         <div class="menu__container container">
             <div class="menu__wrapper">
-                <h1 class="menu__heading menu__heading--green">Rock<img class="menu__hands-img" src="assets/img/userchoice-rock.png" alt="rock image"></h1>
+                <!-- <h1 class="menu__heading menu__heading--green">Rock<img class="menu__hands-img" src="assets/img/userchoice-rock.png" alt="rock image"></h1>
                 <h1 class="menu__heading menu__heading--orange">Paper<img class="menu__hands-img" src="assets/img/userchoice-paper.png" alt="paper image"></h1>
                 <h1 class="menu__heading menu__heading--blue">Scissors<img class="menu__hands-img" src="assets/img/userchoice-scissors.png" alt="scissors image"></h1>
-                <h2 class="menu__heading menu__start" data-start>START GAME &#9655;</h2>
+                <h2 class="menu__heading menu__start" data-start>START GAME &#9655;</h2> -->
+                <div class="menu__settings">
+                    <h3 class="menu__heading">Settings</h3>
+                    <div class="menu__modal">
+                        <form action="" class="menu__form">
+                            <label for="pname">Player name:</label>
+                                <input type="text" class="menu__player-name">
+                            <p>Choose your avatar:</p>
+                                <radiogroup class="menu__avatar">
+                                    <input type="radio" id="male" name="avatar" value="male">
+                                    <label for="male"><div class="menu__check"><img class="menu__player-img" src="assets/img/scoreboard-playerman.png" alt="male avatar"></div></label>
+                                    <input type="radio" id="female" name="avatar" value="female">
+                                    <label for="female"><div class="menu__check"><img class="menu__player-img" src="assets/img/scoreboard-playerwoman.png" alt="female avatar"></div></label>
+                                </radiogroup>
+                            <p>Limit point to win:</p>
+                                <radiogroup class="menu__limit">
+                                    <input type="radio" id="points3" name="avatar" value="3">
+                                    <label for="points3"><p class="menu__points">3</p></label>
+                                    <input type="radio" id="points5" name="avatar" value="5">
+                                    <label for="points5"><p class="menu__points">5</p></label>
+                                    <input type="radio" id="points10" name="avatar" value="10">
+                                    <label for="points10"><p class="menu__points">10</p></label>
+                                </radiogroup>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
