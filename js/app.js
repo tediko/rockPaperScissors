@@ -7,7 +7,7 @@ const cpuHand = document.querySelector('.game__cpu-hand');
 const hands = document.querySelectorAll('.game__result-hands > img');
 const playerName = document.querySelector('[data-name]');
 const playerAvatar = document.querySelector('[data-avatar]');
-let pointLimit;
+let pointLimit = 0;
 let userScore = 0;
 let computerScore = 0;
 
@@ -130,7 +130,7 @@ const startGame = () => {
 
     playerName.textContent = name.value == "" ? 'player' : name.value;
     playerAvatar.src = `assets/img/scoreboard-player${avatar.value}.png`;
-    pointLimit = limit.value;
+    pointLimit = parseFloat(limit.value);
 
     form.reset();
 }
