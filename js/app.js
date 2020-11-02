@@ -100,14 +100,14 @@ userChoices.forEach(choice => {
 })
 
 
-/* Menu */
-const startButton = document.querySelector('[data-start]');
-const menuSection = document.querySelector('.menu');
-const gameSection = document.querySelector('.game');
+/* Settings */
+const settingsButton = document.querySelector('[data-settings]');
+const menuSection = document.querySelector('.menu__start');
+const settingsSection = document.querySelector('.menu__settings');
 
-const startGame = () => {
+const gameSettings = () => {
     menuSection.classList.add('active');
-    gameSection.classList.add('active');
+    settingsSection.classList.add('active');
 }
 
-startButton.addEventListener('click', startGame);
+settingsButton.addEventListener('click', gameSettings);
