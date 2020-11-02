@@ -49,7 +49,7 @@ const cpuWin = () => {
     setTimeout(() => {
         gameSection.classList.remove('active');
         resultSection.classList.add('active');
-        winnerImage.src = `assets/img/result-lost.png`;
+        winnerImage.src = `assets/img/result-lose.png`;
         winnerResult.textContent = `${playerName.textContent} LOST. CPU WINS!`;
     }, 1000);
 }
