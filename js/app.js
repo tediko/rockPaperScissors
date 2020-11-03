@@ -1,7 +1,7 @@
 const userChoices = document.querySelectorAll('[data-choice]');
 const playerScore = document.querySelector('[data-score-player]');
 const cpuScore = document.querySelector('[data-score-cpu]');
-const result = document.querySelector('[data-result]');
+const drawMessage = document.querySelector('[data-result]');
 const playerHand = document.querySelector('.game__player-hand');
 const cpuHand = document.querySelector('.game__cpu-hand');
 const hands = document.querySelectorAll('.game__result-hands > img');
@@ -57,21 +57,21 @@ const displayResult = (userChoice, cpuChoice, winner) => {
         if (winner == 'user') {
             userScore++;
             playerScore.textContent = userScore;
-            result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
+            drawMessage.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
             userScore == pointLimit ? finalGameResult('user') : '';
             updateImages(userChoice, cpuChoice);
             playerScore.classList.add('active');
-            result.classList.add('win');
+            drawMessage.classList.add('win');
         } else if (winner == 'cpu') {
             computerScore++;
             cpuScore.textContent = computerScore;
-            result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
+            drawMessage.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
             computerScore == pointLimit ? finalGameResult('cpu') : '';
             updateImages(userChoice, cpuChoice);
             cpuScore.classList.add('active');
-            result.classList.add('lose');
+            drawMessage.classList.add('lose');
         } else {
-            result.textContent = `It's a tie!`;
+            drawMessage.textContent = `It's a tie!`;
             updateImages(userChoice, cpuChoice);
         }
     }, 1000);
@@ -88,8 +88,8 @@ function game(event) {
         hand.addEventListener('animationend', () => {
             hand.style.animation = '';
             eventTarget.style.pointerEvents = 'auto'; // Enable clicking on userChoice buttons after animation ends
-            result.classList.remove('win');
-            result.classList.remove('lose');
+            drawMessage.classList.remove('win');
+            drawMessage.classList.remove('lose');
             playerScore.classList.remove('active');
             cpuScore.classList.remove('active');
         })
