@@ -1,7 +1,7 @@
 const userChoices = document.querySelectorAll('[data-choice]');
 const playerScore = document.querySelector('[data-score-player]');
 const cpuScore = document.querySelector('[data-score-cpu]');
-const drawMessage = document.querySelector('[data-result]');
+const drawMessage = document.querySelector('[data-draw-message]');
 const playerHand = document.querySelector('.game__player-hand');
 const cpuHand = document.querySelector('.game__cpu-hand');
 const hands = document.querySelectorAll('.game__result-hands > img');
