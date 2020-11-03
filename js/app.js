@@ -36,50 +36,52 @@ const updateImages = (userChoice, cpuChoice) => {
     cpuHand.src = `assets/img/result-${cpuChoice}.png`;
 }
 
-const userWin = () => {
+// Fn to display total result after match is over
+const totalResult = (winner) => {
     setTimeout(() => {
         gameSection.classList.remove('active');
         resultSection.classList.add('active');
-        winnerImage.src = `assets/img/result-win.png`;
-        winnerResult.textContent = `YOU WON! CONGRATULATIONS ${playerName.textContent}!`;
+        winnerImage.src = `assets/img/result-${winner == 'user' ? 'win' : 'lose'}.png`;
+        if (winner == 'user') {
+            winnerResult.textContent = `YOU WON! CONGRATULATIONS ${playerName.textContent}!`;
+        } else {
+            winnerResult.textContent = `${playerName.textContent} LOST. CPU WINS!`;
+        }
     }, 1000);
 }
 
-const cpuWin = () => {
-    setTimeout(() => {
-        gameSection.classList.remove('active');
-        resultSection.classList.add('active');
-        winnerImage.src = `assets/img/result-lose.png`;
-        winnerResult.textContent = `${playerName.textContent} LOST. CPU WINS!`;
-    }, 1000);
-}
-
+// Fn to update scores, and display score/draw result/update hand images
 const win = (userChoice, cpuChoice) => {
     handDrawAnimation();
     setTimeout(() => {
         userScore++;
         playerScore.textContent = userScore;
         result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
-        userScore == pointLimit ? userWin() : '';
+        if (userScore == pointLimit) {
+            totalResult('user');
+        }
         updateImages(userChoice, cpuChoice);
         playerScore.classList.add('active');
         result.classList.add('win');
     }, 1000);
 }
 
+// Fn to update scores, and display score/draw result/update hand images
 const lose = (userChoice, cpuChoice) => {
     handDrawAnimation();
     setTimeout(() => {
         computerScore++;
         cpuScore.textContent = computerScore;
         result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
-        computerScore == pointLimit ? cpuWin() : '';
+        if (computerScore == pointLimit) {
+            totalResult('cpu');
+        }
         updateImages(userChoice, cpuChoice);
         cpuScore.classList.add('active');
         result.classList.add('lose');
     }, 1000)
 }
-
+// Fn to update scores, and display score/draw result/update hand images
 const tie = (userChoice, cpuChoice) => {
     handDrawAnimation();    
     setTimeout(() => {
