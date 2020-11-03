@@ -37,7 +37,7 @@ const updateImages = (userChoice, cpuChoice) => {
 }
 
 // Fn to display total result after match is over
-const totalResult = (winner) => {
+const finalGameResult = (winner) => {
     setTimeout(() => {
         gameSection.classList.remove('active');
         resultSection.classList.add('active');
@@ -58,9 +58,7 @@ const displayResult = (userChoice, cpuChoice, winner) => {
             userScore++;
             playerScore.textContent = userScore;
             result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
-            if (userScore == pointLimit) {
-                totalResult('user');
-            }
+            userScore == pointLimit ? finalGameResult('user') : '';
             updateImages(userChoice, cpuChoice);
             playerScore.classList.add('active');
             result.classList.add('win');
@@ -68,9 +66,7 @@ const displayResult = (userChoice, cpuChoice, winner) => {
             computerScore++;
             cpuScore.textContent = computerScore;
             result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
-            if (computerScore == pointLimit) {
-                totalResult('cpu');
-            }
+            computerScore == pointLimit ? finalGameResult('cpu') : '';
             updateImages(userChoice, cpuChoice);
             cpuScore.classList.add('active');
             result.classList.add('lose');
