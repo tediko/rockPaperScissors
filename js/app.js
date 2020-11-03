@@ -44,6 +44,9 @@ const resetScore = () => {
     computerScore = 0;
     playerScore.textContent = userScore;
     cpuScore.textContent = computerScore;
+    drawMessage.textContent = `Rock paper scissors! Shoot!`;
+    drawMessage.classList.remove('win');
+    drawMessage.classList.remove('lose');
 }
 
 // Fn to display total result after match is over
