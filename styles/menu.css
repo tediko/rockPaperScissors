@@ -1,9 +1,9 @@
 /* Menu section */
 .menu {
-    display: flex;
+    /* display: flex;
     flex-flow: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 100%),url('../assets/img/game-bg.jpg');
     background-size: cover;
     background-repeat: none;
@@ -16,9 +16,18 @@
     display: none;
 }
 
+.menu__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
 .menu__start {
     display: flex;
     flex-flow: column;
+    margin: 0 auto;
 }
 
 .menu__start.disable {
@@ -28,7 +37,11 @@
 .menu__wrapper {
     display: flex;
     flex-flow: column;
-    
+    width: 100%;   
+}
+
+.menu__settings.active {
+    padding: 0 25px;
 }
 
 .menu__heading {
@@ -110,12 +123,17 @@
 }
 
 .menu__settings-container {
-    width: 800px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .menu__settings .menu__heading {
     font-size: 5rem;
+}
+
+.fa-users-cog {
+    font-size: 4rem;
+    transition: font-size 250ms ease-in;
 }
 
 .menu__modal {
@@ -276,6 +294,10 @@
         align-items: center;
         height: 70px;
     }
+
+    .menu__header .menu__heading {
+        font-size: 4rem;
+    }
     
     .menu__hands {
         transform: scale(0.5);
@@ -314,5 +336,29 @@
     
     .menu__hands-mobile {
         display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu__header {
+        display: flex;
+        flex-flow: column;
+    }
+    .menu__header .menu__heading {
+        font-size: 3rem;
+        order: 1;
+    }
+    
+    .fa-users-cog {
+        margin-bottom: 15px;
+        order: 0;
+    }
+
+    .menu__player-name {
+        max-width: 260px;
+    }
+
+    .menu__cta {
+        font-size: 1.5rem;
     }
 }
