@@ -7,8 +7,8 @@ const cpuHand = document.querySelector('.game__cpu-hand');
 const hands = document.querySelectorAll('.game__result-hands > img');
 const playerName = document.querySelector('[data-name]');
 const playerAvatar = document.querySelector('[data-avatar]');
-const winnerImage = document.querySelector('[data-winner-image]');
-const winnerResult = document.querySelector('[data-winner]');
+const finalImage = document.querySelector('[data-final-image]');
+const finalMessage = document.querySelector('[data-message]');
 const resultSection = document.querySelector('.result');
 const gameSection = document.querySelector('.game');
 const menuSection = document.querySelector('.menu');
@@ -41,11 +41,11 @@ const finalGameResult = (winner) => {
     setTimeout(() => {
         gameSection.classList.remove('active');
         resultSection.classList.add('active');
-        winnerImage.src = `assets/img/result-${winner == 'user' ? 'win' : 'lose'}.png`;
+        finalImage.src = `assets/img/result-${winner == 'user' ? 'win' : 'lose'}.png`;
         if (winner == 'user') {
-            winnerResult.textContent = `YOU WON! CONGRATULATIONS ${playerName.textContent}!`;
+            finalMessage.textContent = `YOU WON! CONGRATULATIONS ${playerName.textContent}!`;
         } else {
-            winnerResult.textContent = `${playerName.textContent} LOST. CPU WINS!`;
+            finalMessage.textContent = `${playerName.textContent} LOST. CPU WINS!`;
         }
     }, 1000);
 }
