@@ -9,9 +9,11 @@ const playerName = document.querySelector('[data-name]');
 const playerAvatar = document.querySelector('[data-avatar]');
 const finalImage = document.querySelector('[data-final-image]');
 const finalMessage = document.querySelector('[data-message]');
+// Sections
 const resultSection = document.querySelector('.result');
 const gameSection = document.querySelector('.game');
 const menuSection = document.querySelector('.menu');
+// Points
 let pointLimit = 0;
 let userScore = 0;
 let computerScore = 0;
