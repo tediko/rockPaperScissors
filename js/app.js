@@ -51,43 +51,34 @@ const totalResult = (winner) => {
 }
 
 // Fn to update scores, and display score/draw result/update hand images
-const win = (userChoice, cpuChoice) => {
+const displayResult = (userChoice, cpuChoice, winner) => {
     handDrawAnimation();
     setTimeout(() => {
-        userScore++;
-        playerScore.textContent = userScore;
-        result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
-        if (userScore == pointLimit) {
-            totalResult('user');
+        if (winner == 'user') {
+            userScore++;
+            playerScore.textContent = userScore;
+            result.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
+            if (userScore == pointLimit) {
+                totalResult('user');
+            }
+            updateImages(userChoice, cpuChoice);
+            playerScore.classList.add('active');
+            result.classList.add('win');
+        } else if (winner == 'cpu') {
+            computerScore++;
+            cpuScore.textContent = computerScore;
+            result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
+            if (computerScore == pointLimit) {
+                totalResult('cpu');
+            }
+            updateImages(userChoice, cpuChoice);
+            cpuScore.classList.add('active');
+            result.classList.add('lose');
+        } else {
+            result.textContent = `It's a tie!`;
+            updateImages(userChoice, cpuChoice);
         }
-        updateImages(userChoice, cpuChoice);
-        playerScore.classList.add('active');
-        result.classList.add('win');
     }, 1000);
-}
-
-// Fn to update scores, and display score/draw result/update hand images
-const lose = (userChoice, cpuChoice) => {
-    handDrawAnimation();
-    setTimeout(() => {
-        computerScore++;
-        cpuScore.textContent = computerScore;
-        result.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
-        if (computerScore == pointLimit) {
-            totalResult('cpu');
-        }
-        updateImages(userChoice, cpuChoice);
-        cpuScore.classList.add('active');
-        result.classList.add('lose');
-    }, 1000)
-}
-// Fn to update scores, and display score/draw result/update hand images
-const tie = (userChoice, cpuChoice) => {
-    handDrawAnimation();    
-    setTimeout(() => {
-        result.textContent = `It's a tie!`;
-        updateImages(userChoice, cpuChoice);
-    }, 1000)
 }
 
 function game(event) {
@@ -113,15 +104,15 @@ function game(event) {
         case 'rockscissors':
         case 'paperrock':
         case 'scissorspaper':
-            win(userChoice, cpuChoice);
+            displayResult(userChoice, cpuChoice, 'user');
             break;
         case 'scissorsrock':
         case 'rockpaper':
         case 'paperscissors':
-            lose(userChoice, cpuChoice);
+            displayResult(userChoice, cpuChoice, 'cpu');
             break;
         default: 
-            tie(userChoice, cpuChoice);
+            displayResult(userChoice, cpuChoice, 'tie');
             break;
     }
 }
