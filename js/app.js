@@ -9,14 +9,15 @@ const playerName = document.querySelector('[data-name]');
 const playerAvatar = document.querySelector('[data-avatar]');
 const finalImage = document.querySelector('[data-final-image]');
 const finalMessage = document.querySelector('[data-message]');
+let handsEvents;
 // Sections
 const resultSection = document.querySelector('.result');
 const gameSection = document.querySelector('.game');
 const menuSection = document.querySelector('.menu');
 // Points
 let pointLimit = 0;
-let userScore = 0;
-let computerScore = 0;
+let userScore = 2;
+let computerScore = 2;
 
 
 // Random computer choice
@@ -49,6 +50,13 @@ const resetScore = () => {
     drawMessage.classList.remove('lose');
 }
 
+// Disable clicking on user choice hands when user||cpu win
+const disableChoice = (state) => {
+    userChoices.forEach(choice => {
+        state ? choice.removeEventListener('click', game) : choice.addEventListener('click', game);
+    })
+}
+
 // Fn to display total result after match is over
 const finalGameResult = (winner) => {
     setTimeout(() => {
@@ -71,7 +79,7 @@ const displayResult = (userChoice, cpuChoice, winner) => {
             userScore++;
             playerScore.textContent = userScore;
             drawMessage.textContent = `${userChoice} smashes ${cpuChoice}. Player win!`;
-            userScore == pointLimit ? finalGameResult('user') : '';
+            userScore == pointLimit ? (finalGameResult('user'), disableChoice(true)) : '';
             updateImages(userChoice, cpuChoice);
             playerScore.classList.add('active');
             drawMessage.classList.add('win');
@@ -79,7 +87,7 @@ const displayResult = (userChoice, cpuChoice, winner) => {
             computerScore++;
             cpuScore.textContent = computerScore;
             drawMessage.textContent = `${cpuChoice} smashes ${userChoice}. Cpu win!`;
-            computerScore == pointLimit ? finalGameResult('cpu') : '';
+            computerScore == pointLimit ? (finalGameResult('cpu'), disableChoice(true)) : '';
             updateImages(userChoice, cpuChoice);
             cpuScore.classList.add('active');
             drawMessage.classList.add('lose');
@@ -92,6 +100,7 @@ const displayResult = (userChoice, cpuChoice, winner) => {
 
 function game(event) {
     const eventTarget = event.target.parentElement;
+    handsEvents = eventTarget;
     eventTarget.style.pointerEvents = 'none'; // Prevent clicking on userChoice buttons
     const userChoice = this.dataset.choice;
     const cpuChoice = getComputerChoice();
@@ -147,6 +156,7 @@ const gameSettings = () => {
 
 const playAgain = () => {
     resetScore();
+    disableChoice(false);
     menuSection.classList.remove('disable');
     resultSection.classList.remove('active');
 }
