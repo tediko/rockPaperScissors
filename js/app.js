@@ -38,6 +38,14 @@ const updateImages = (userChoice, cpuChoice) => {
     cpuHand.src = `assets/img/result-${cpuChoice}.png`;
 }
 
+// Reset scoreboard
+const resetScore = () => {
+    userScore = 0;
+    computerScore = 0;
+    playerScore.textContent = userScore;
+    cpuScore.textContent = computerScore;
+}
+
 // Fn to display total result after match is over
 const finalGameResult = (winner) => {
     setTimeout(() => {
@@ -123,6 +131,7 @@ userChoices.forEach(choice => {
 /* Settings & start game*/
 const settingsButton = document.querySelector('[data-settings]');
 const startButton = document.querySelector('[data-start]');
+const againButton = document.querySelector('[data-play-again]');
 const menuStartSection = document.querySelector('.menu__start');
 const settingsSection = document.querySelector('.menu__settings');
 const form = document.querySelector('.menu__form');
@@ -131,6 +140,12 @@ const form = document.querySelector('.menu__form');
 const gameSettings = () => {
     menuStartSection.classList.add('disable');
     settingsSection.classList.add('active');
+}
+
+const playAgain = () => {
+    resetScore();
+    menuSection.classList.remove('disable');
+    resultSection.classList.remove('active');
 }
 
 // Disable settings and show game. Fn gets values from setting
@@ -151,3 +166,4 @@ const startGame = () => {
 
 settingsButton.addEventListener('click', gameSettings);
 startButton.addEventListener('click', startGame);
+againButton.addEventListener('click', playAgain);
