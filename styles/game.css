@@ -350,6 +350,10 @@
 }
 
 @media (max-width: 768px) {
+    .game__wrapper {
+        margin: 25px 10px;
+    }
+
     .game__bar {
         font-size: 1rem;
     }
@@ -387,5 +391,78 @@
     .game__avatar--right {
         right: 0;
         transform: translateX(0);
+    }
+
+    .game__result-display {
+        margin: 100px 0 100px 0;
+    }
+
+    .game__result-hands {
+        margin-bottom: 50px;
+    }
+
+    .game__player-hand,
+    .game__cpu-hand {
+        width: 200px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game__scoreboard {
+        max-width: 270px;
+        width: 100%;
+        margin: 48px auto 0 auto;
+    }
+
+    .game__bar {
+        background: transparent;
+        color: var(--clr-white);
+    }
+
+    .game__avatar--left {
+        left: 0%;
+        transform: translateX(169%);
+        top: -40px;
+        z-index: 1;
+    }
+    
+    .game__avatar--right {
+        left: 0;
+        transform: translateX(-134%);
+        top: -40px;
+    }
+
+    .game__score {
+        height: auto;
+    }
+
+    .game__result-hands {
+        height: 100px;
+        margin-bottom: 50px;
+    }
+
+    .game__player-hand,
+    .game__cpu-hand {
+        width: 125px;
+        height: 80px;
+    }
+
+    .game__result {
+        font-size: 2rem;
+    }
+
+    .game__choice {
+        width: 89px;
+        height: 89px;
+    }
+
+    .game__choice:not(:last-child) {
+        margin-right: 20px;
+    }
+
+    .game__choice-img {
+        width: 60px;
+        height: 60px;
     }
 }
