@@ -16,8 +16,8 @@ const gameSection = document.querySelector('.game');
 const menuSection = document.querySelector('.menu');
 // Points
 let pointLimit = 0;
-let userScore = 2;
-let computerScore = 2;
+let userScore = 0;
+let computerScore = 0;
 
 
 // Random computer choice
