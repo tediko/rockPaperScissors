@@ -420,6 +420,10 @@
         color: var(--clr-white);
     }
 
+    .game__avatar {
+        display: none;
+    }
+
     .game__avatar--left {
         left: 0%;
         transform: translateX(169%);
