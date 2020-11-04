@@ -59,3 +59,25 @@
 .result__link:hover {
     background: var(--clr-blue);
 }
+
+/* Result media queries */
+@media (max-width: 1024px) {
+    .result__link {
+        margin-top: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .result__text {
+        font-size: 2.875rem;
+    }
+    
+    .result__link {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .result__text {
+        font-size: 2rem;
+    }
+}
